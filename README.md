@@ -56,10 +56,25 @@ sequenceDiagram
 > 🧨 Before you click the "Assessment Complete" button on the Learning Platform, add your answers below for each question and make a commit. It is your option to request a face-to-face meeting with a coach for a vocabulary review.
 
 1. Should transient state be represented in a database diagram? Why, or why not?
-   > Your answer here
-2. In the **FoodTruck** module, you are **await**ing the invocataion of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
-   > Your answer here
+
+   > Not beyond the table that stores foreign keys in permanent state, which is the `Orders` table in this case. That table has identical structure (and relationships to other tables) as the transient state.
+
+
+
+2. In the **FoodTruck** module, you are **await**ing the invocation of all of the component functions _(e.g. sales, veggie options, etc.)_. Why must you use the `await` keyword there? Explain what happens if you remove it.
+
+   > The invoked functions are `async`, so they return a promise. `await` is used to access data by unwrapping those promises.
+
+
+
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
-   > Your answer here
+
+   > Those choices store foreign keys in the transient state that relate to other data entities. When the **Purchase Combo** button is clicked, a function is invoked that POSTs the transient state as a new object in the targeted entity, `"orders"`.
+
+
+
 4. You used the `map()` array method in the self assessment _(at least, you should have since it is a learning objective)_. Explain why that function is helpful as a replacement for a `for..of` loop.
-   > Your answer here
+
+   > 1. In the context of readability, using `.map()` and `.join()` express what I want to do, whereas for..of loops merely express how to do it.
+   > 2. Methods that take other functions as arguments allow for more flexible and reusable code.
+   > 3. Using `.map()` and `.join()` could reduce the complexity of implementing display format changes or edge case handling.
