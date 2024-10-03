@@ -1,10 +1,22 @@
-export const Sales = async () => {
-    const sales = await fetch("http://localhost:8088/orders").then(res => res.json())
+export const SalesList = async () => {
+    const response = await fetch("http://localhost:8088/purchases")
+    const sales = await response.json()
 
-    let salesDivs = sales.map()
+    let salesHTML = ""
+    const salesStringArray = sales.map(
+        (sale) => {
+            //const salePrice = 
 
-    salesDivs = salesDivs.join("")
+            return `<section>
+                <div>
+                    Receipt#${sale.id} = 
+                </div>
+            </section>`
+        }
+    )
 
-    return salesDivs
+    salesHTML += salesStringArray.join("")
+
+    return salesHTML
 }
 
