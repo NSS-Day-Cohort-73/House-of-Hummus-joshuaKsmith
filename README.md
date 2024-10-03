@@ -57,7 +57,7 @@ sequenceDiagram
 
 1. Should transient state be represented in a database diagram? Why, or why not?
 
-   > Not beyond the table that stores foreign keys in permanent state, which is the `Orders` table in this case. That table has identical structure (and relationships to other tables) as the transient state.
+   > Not beyond the table that stores foreign keys in permanent state, which is the `purchases` table in this case. That table has identical structure (and relationships to other tables) as the transient state.
 
 
 
@@ -69,7 +69,7 @@ sequenceDiagram
 
 3. When the user is making choices by selecting radio buttons, explain how that data is retained so that the **Purchase Combo** button works correctly.
 
-   > Those choices store foreign keys in the transient state that relate to other data entities. When the **Purchase Combo** button is clicked, a function is invoked that POSTs the transient state as a new object in the targeted entity, `"orders"`.
+   > Those choices store foreign keys in the transient state that relate to other data entities. When the **Purchase Combo** button is clicked, a function is invoked that POSTs the transient state as a new object in the targeted entity, `"purchases"`.
 
 
 
