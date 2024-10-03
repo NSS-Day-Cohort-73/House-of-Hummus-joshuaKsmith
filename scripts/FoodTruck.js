@@ -10,8 +10,7 @@ export const FoodTruck = async () => {
     const vegetableOptionsHTML = await VegetableOptions()
     const sideOptionsHTML = await SideOptions()
     const buttonHTML = RecordSale()
-
-    const salesListHTML = SalesList()
+    const salesListHTML = await SalesList()
 
     return `
         <header class="header">

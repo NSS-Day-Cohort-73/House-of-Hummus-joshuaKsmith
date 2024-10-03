@@ -4,6 +4,12 @@ const transientState = {
     "sideId": 0,
 }
 
+const resetTransientState = (currentState) => {
+    currentState.entreeId = 0
+    currentState.vegetableId = 0
+    currentState.sideId = 0
+}
+
 export const setEntreeChoice = (chosenEntree) => {
     transientState.entreeId = chosenEntree
     console.log(transientState)
@@ -27,8 +33,10 @@ export const SavePurchaseSubmission = async () => {
         },
         body: JSON.stringify(transientState)
     }
-    const response = await fetch("http://localhost:8088/purchases")
+    const response = await fetch("http://localhost:8088/purchases", postOptions)
     
     const customEvent = new CustomEvent("newPurchaseSubmitted")
     document.dispatchEvent(customEvent)
+    
+    resetTransientState(transientState)
 }
